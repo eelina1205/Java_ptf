@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 
-public class CreateNewUserTests {
+public class CreateNewUserTests1 {
   FirefoxDriver wd;
 
   @BeforeMethod
