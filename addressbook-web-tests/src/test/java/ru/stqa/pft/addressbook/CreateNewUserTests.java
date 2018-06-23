@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 
-public class GroupCreationInLibraryTests {
+public class CreateNewUserTests {
   FirefoxDriver wd;
 
   @BeforeMethod
@@ -34,7 +34,7 @@ public class GroupCreationInLibraryTests {
 
 
   @Test
-  public void testGroupCreationInLibrary() {
+  public void testCreateNewUser() {
     addNewAddress();
     enterFirstName("Yelena");
     enterMiddleName();
