@@ -64,7 +64,7 @@ public class TestBase {
   }
 
   protected void gotoGroupPage() {
-      wd.findElement(By.name("new")).click();
+      wd.findElement(By.name("groups")).click();
   }
 
   @AfterMethod
