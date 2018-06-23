@@ -42,27 +42,27 @@ public class GroupCreationInLibraryTests {
     changeMiddleName("MiddleName");
     enterLastName("LastName");
     enterNick("NickName");
-    enterTitle(new DataForTitle("Title"));
-    enterCompany(new DataForCompany("Company"));
-    enterAddress(new DataForAddress("Address"));
+    enterTitle("Title");
+    enterCompany("Company");
+    enterAddress("Address");
     enterHome();
-    enterHomePhone(new DataForHomePhone("1234567890"));
-    enterMobilePhome(new DataForMobilePhone("1234567890"));
-    enterWorkPhone(new DataForWorkPhone("1234567890"));
-    enterFax(new DataFoFax("1234567890"));
-    enter1email(new DataFor1email("email@gmail.com"));
-    enter2email(new DataForEmail("email1@gmail.com"));
-    enter3email(new DataFor3email("email3@gmail.com"));
-    enterHomePage(new DataHomePage("23"));
+    enterHomePhone("1234567890");
+    enterMobilePhome("1234567890");
+    enterWorkPhone("1234567890");
+    enterFax("1234567890");
+    enter1email("email@gmail.com");
+    enter2email("email1@gmail.com");
+    enter3email("email3@gmail.com");
+    enterHomePage("23");
     enterDate();
     enterMonth();
-    enterYear(new DataForAnnYear("2000"));
+    enterYear("2000");
     selectAnniversaryDate();
     selectAnniversaryMonth();
-    selectAnniversaryYear(new DataFotAnniversaryYear("2020"));
-    enterSecondAddress(new DataForSecondAddress("Secondary Address"));
-    enterSecondHome(new DataForSecondPhone("Home"));
-    enterNotes(new DataNotes("Notes"));
+    selectAnniversaryYear("2020");
+    enterSecondAddress("Secondary Address");
+    enterSecondHome("Home");
+    enterNotes("Notes");
     logout();
   }
 
@@ -70,29 +70,29 @@ public class GroupCreationInLibraryTests {
     wd.findElement(By.linkText("Logout")).click();
   }
 
-  private void enterNotes(DataNotes dataNotes) {
+  private void enterNotes(String notes) {
     wd.findElement(By.name("notes")).click();
     wd.findElement(By.name("notes")).clear();
-    wd.findElement(By.name("notes")).sendKeys(dataNotes.getNotes());
+    wd.findElement(By.name("notes")).sendKeys(notes);
   }
 
-  private void enterSecondHome(DataForSecondPhone dataForSecondPhone) {
+  private void enterSecondHome(String phoneHome) {
     wd.findElement(By.name("phone2")).click();
     wd.findElement(By.name("phone2")).click();
     wd.findElement(By.name("phone2")).clear();
-    wd.findElement(By.name("phone2")).sendKeys(dataForSecondPhone.getPhoneHome());
+    wd.findElement(By.name("phone2")).sendKeys(phoneHome);
   }
 
-  private void enterSecondAddress(DataForSecondAddress dataForSecondAddress) {
+  private void enterSecondAddress(String secondAdress) {
     wd.findElement(By.name("address2")).click();
     wd.findElement(By.name("address2")).clear();
-    wd.findElement(By.name("address2")).sendKeys(dataForSecondAddress.getSecondAdress());
+    wd.findElement(By.name("address2")).sendKeys(secondAdress);
   }
 
-  private void selectAnniversaryYear(DataFotAnniversaryYear dataFotAnniversaryYear) {
+  private void selectAnniversaryYear(String year) {
     wd.findElement(By.name("ayear")).click();
     wd.findElement(By.name("ayear")).clear();
-    wd.findElement(By.name("ayear")).sendKeys(dataFotAnniversaryYear.getYear());
+    wd.findElement(By.name("ayear")).sendKeys(year);
   }
 
   private void selectAnniversaryMonth() {
@@ -107,10 +107,10 @@ public class GroupCreationInLibraryTests {
     }
   }
 
-  private void enterYear(DataForAnnYear dataForAnnYear) {
+  private void enterYear(String yearAnniv) {
     wd.findElement(By.name("byear")).click();
     wd.findElement(By.name("byear")).clear();
-    wd.findElement(By.name("byear")).sendKeys(dataForAnnYear.getYearAnniv());
+    wd.findElement(By.name("byear")).sendKeys(yearAnniv);
   }
 
   private void enterMonth() {
@@ -125,53 +125,53 @@ public class GroupCreationInLibraryTests {
     }
   }
 
-  private void enterHomePage(DataHomePage dataHomePage) {
+  private void enterHomePage(String homeNumber) {
     wd.findElement(By.name("homepage")).click();
     wd.findElement(By.name("homepage")).clear();
-    wd.findElement(By.name("homepage")).sendKeys(dataHomePage.getHomeNumber());
+    wd.findElement(By.name("homepage")).sendKeys(homeNumber);
   }
 
-  private void enter3email(DataFor3email dataFor3email) {
+  private void enter3email(String thirdEmail1) {
     wd.findElement(By.name("email3")).click();
     wd.findElement(By.name("email3")).clear();
-    wd.findElement(By.name("email3")).sendKeys(dataFor3email.getThirdEmail1());
+    wd.findElement(By.name("email3")).sendKeys(thirdEmail1);
   }
 
-  private void enter2email(DataForEmail dataForEmail) {
+  private void enter2email(String firstEmail) {
     wd.findElement(By.name("email2")).click();
     wd.findElement(By.name("email2")).clear();
-    wd.findElement(By.name("email2")).sendKeys(dataForEmail.getFirstEmail());
+    wd.findElement(By.name("email2")).sendKeys(firstEmail);
   }
 
 
-  private void enter1email(DataFor1email dataFor1email) {
+  private void enter1email(String email) {
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(dataFor1email.getEmail());
+    wd.findElement(By.name("email")).sendKeys(email);
   }
 
-  private void enterFax(DataFoFax dataFoFax) {
+  private void enterFax(String fax) {
     wd.findElement(By.name("fax")).click();
     wd.findElement(By.name("fax")).clear();
-    wd.findElement(By.name("fax")).sendKeys(dataFoFax.getFax());
+    wd.findElement(By.name("fax")).sendKeys(fax);
   }
 
-  private void enterWorkPhone(DataForWorkPhone dataForWorkPhone) {
+  private void enterWorkPhone(String workinkPhone) {
     wd.findElement(By.name("work")).click();
     wd.findElement(By.name("work")).clear();
-    wd.findElement(By.name("work")).sendKeys(dataForWorkPhone.getWorkinkPhone());
+    wd.findElement(By.name("work")).sendKeys(workinkPhone);
   }
 
-  private void enterMobilePhome(DataForMobilePhone dataForMobilePhone) {
+  private void enterMobilePhome(String mobilePhone) {
     wd.findElement(By.name("mobile")).click();
     wd.findElement(By.name("mobile")).clear();
-    wd.findElement(By.name("mobile")).sendKeys(dataForMobilePhone.getMobilePhone());
+    wd.findElement(By.name("mobile")).sendKeys(mobilePhone);
   }
 
-  private void enterHomePhone(DataForHomePhone dataForHomePhone) {
+  private void enterHomePhone(String homePhone) {
     wd.findElement(By.name("home")).click();
     wd.findElement(By.name("home")).clear();
-    wd.findElement(By.name("home")).sendKeys(dataForHomePhone.getHomePhone());
+    wd.findElement(By.name("home")).sendKeys(homePhone);
   }
 
   private void enterHome() {
@@ -180,22 +180,22 @@ public class GroupCreationInLibraryTests {
     wd.findElement(By.name("home")).clear();
   }
 
-  private void enterAddress(DataForAddress dataForAddress) {
+  private void enterAddress(String address) {
     wd.findElement(By.name("address")).click();
     wd.findElement(By.name("address")).clear();
-    wd.findElement(By.name("address")).sendKeys(dataForAddress.getAddress());
+    wd.findElement(By.name("address")).sendKeys(address);
   }
 
-  private void enterCompany(DataForCompany dataForCompany) {
+  private void enterCompany(String company) {
     wd.findElement(By.name("company")).click();
     wd.findElement(By.name("company")).clear();
-    wd.findElement(By.name("company")).sendKeys(dataForCompany.getCompany());
+    wd.findElement(By.name("company")).sendKeys(company);
   }
 
-  private void enterTitle(DataForTitle dataForTitle) {
+  private void enterTitle(String title) {
     wd.findElement(By.name("title")).click();
     wd.findElement(By.name("title")).clear();
-    wd.findElement(By.name("title")).sendKeys(dataForTitle.getTitle());
+    wd.findElement(By.name("title")).sendKeys(title);
   }
 
   private void enterNick(String nick) {
