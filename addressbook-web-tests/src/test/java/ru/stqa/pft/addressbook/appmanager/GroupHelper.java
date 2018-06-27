@@ -22,7 +22,7 @@ public class GroupHelper {
   }
 
   public void fillGroupForm(GroupData groupData) {
-    type(groupData, By.name("group_name"));
+    type(groupData, By.name("group_name"), By.name("group_name"));
     wd.findElement(By.name("group_header")).click();
     wd.findElement(By.name("group_header")).clear();
     wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
@@ -31,9 +31,9 @@ public class GroupHelper {
     wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
   }
 
-  private void type(GroupData groupData, By locator) {
+  private void type(GroupData groupData, By locator, By locator) {
     wd.findElement(locator).click();
-    wd.findElement(By.name("group_name")).clear();
+    wd.findElement(locator).clear();
     wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
   }
 
