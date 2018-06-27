@@ -1,15 +1,16 @@
 package ru.stqa.pft.addressbook;
 
 import org.testng.annotations.Test;
+import ru.stqa.pft.addressbook.tests.TestBase;
 
 public class CreateNewUserTests extends TestBase {
 
 
     @Test
     public void testCreateNewUser() {
-        fillForm();
-        submitNewUser();
-        goToHomePage();
+        app.fillForm();
+        app.submitNewUser();
+        app.goToHomePage();
     }
 
 }
