@@ -5,40 +5,29 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.UserData;
 
-public class GroupHelper {
-  private FirefoxDriver wd;
+public class GroupHelper extends HelperBase {
 
   public GroupHelper(FirefoxDriver wd) {
-    this.wd = wd;
+    super(wd);
   }
 
   public void returnToGroupPage() {
 
-      wd.findElement(By.linkText("group page")).click();
+    click(By.linkText("group page"));
   }
 
   public void submitGroupCreation() {
-      wd.findElement(By.name("submit")).click();
+    click(By.name("submit"));
   }
 
   public void fillGroupForm(GroupData groupData) {
-    type(groupData, By.name("group_name"), By.name("group_name"));
-    wd.findElement(By.name("group_header")).click();
-    wd.findElement(By.name("group_header")).clear();
-    wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
-    wd.findElement(By.name("group_footer")).click();
-    wd.findElement(By.name("group_footer")).clear();
-    wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
-  }
-
-  private void type(GroupData groupData, By locator, By locator) {
-    wd.findElement(locator).click();
-    wd.findElement(locator).clear();
-    wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
+    type(By.name("group_name"), groupData.getName());
+    type(By.name("group_header"), groupData.getHeader());
+    type(By.name("group_footer"), groupData.getFooter());
   }
 
   public void initGroupCreation() {
-      wd.findElement(By.name("new")).click();
+    click(By.name("new"));
   }
 
   public void fillForm() {
@@ -46,95 +35,55 @@ public class GroupHelper {
   }
 
   public void goToHomePage() {
-      wd.findElement(By.linkText("home page")).click();
+    click(By.linkText("home page"));
   }
 
   public void submitNewUser() {
-      wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+    click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
   private void fillForm(UserData userData) {
-      wd.findElement(By.linkText("add new")).click();
-      wd.findElement(By.name("firstname")).click();
-      wd.findElement(By.name("firstname")).clear();
-      wd.findElement(By.name("firstname")).sendKeys(userData.getFirstName());
-      wd.findElement(By.name("middlename")).click();
-      wd.findElement(By.name("middlename")).clear();
-      wd.findElement(By.name("middlename")).sendKeys(userData.getMiddleName());
-      wd.findElement(By.name("lastname")).click();
-      wd.findElement(By.name("lastname")).clear();
-      wd.findElement(By.name("lastname")).sendKeys(userData.getSecondName());
-      wd.findElement(By.name("nickname")).click();
-      wd.findElement(By.name("nickname")).clear();
-      wd.findElement(By.name("nickname")).sendKeys(userData.getNick());
-      wd.findElement(By.name("title")).click();
-      wd.findElement(By.name("title")).clear();
-      wd.findElement(By.name("title")).sendKeys(userData.getTitle());
-      wd.findElement(By.name("company")).click();
-      wd.findElement(By.name("company")).clear();
-      wd.findElement(By.name("company")).sendKeys(userData.getCompany());
-      wd.findElement(By.name("address")).click();
-      wd.findElement(By.name("address")).clear();
-      wd.findElement(By.name("address")).sendKeys(userData.getAddress());
-      wd.findElement(By.name("home")).click();
-      wd.findElement(By.name("home")).clear();
-      wd.findElement(By.name("home")).sendKeys(userData.getHomePhone());
-      wd.findElement(By.name("mobile")).click();
-      wd.findElement(By.name("mobile")).click();
-      wd.findElement(By.name("mobile")).clear();
-      wd.findElement(By.name("mobile")).sendKeys(userData.getMobilePhone());
-      wd.findElement(By.name("work")).click();
-      wd.findElement(By.name("work")).clear();
-      wd.findElement(By.name("work")).sendKeys(userData.getWorkPhone());
-      wd.findElement(By.name("fax")).click();
-      wd.findElement(By.name("fax")).clear();
-      wd.findElement(By.name("fax")).sendKeys(userData.getFax());
-      wd.findElement(By.name("email")).click();
-      wd.findElement(By.name("email")).clear();
-      wd.findElement(By.name("email")).sendKeys(userData.getFirstEmail());
-      wd.findElement(By.name("email2")).click();
-      wd.findElement(By.name("email2")).clear();
-      wd.findElement(By.name("email2")).sendKeys(userData.getSecondEmail());
-      wd.findElement(By.name("email3")).click();
-      wd.findElement(By.name("email3")).clear();
-      wd.findElement(By.name("email3")).sendKeys(userData.getThirdEmail());
-      wd.findElement(By.name("homepage")).click();
-      wd.findElement(By.name("homepage")).clear();
-      wd.findElement(By.name("homepage")).sendKeys(userData.getHomepage());
+    click(By.linkText("add new"));
+    type(By.name("firstname"), userData.getFirstName());
+    type(By.name("middlename"), userData.getMiddleName());
+    type(By.name("lastname"), userData.getSecondName());
+    type(By.name("nickname"), userData.getNick());
+    type(By.name("title"), userData.getTitle());
+    type(By.name("company"), userData.getCompany());
+    type(By.name("address"), userData.getAddress());
+    type(By.name("home"), userData.getHomePhone());
+    click(By.name("mobile"));
+    type(By.name("mobile"), userData.getMobilePhone());
+    type(By.name("work"), userData.getWorkPhone());
+    type(By.name("fax"), userData.getFax());
+    type(By.name("email"), userData.getFirstEmail());
+    type(By.name("email2"), userData.getSecondEmail());
+    type(By.name("email3"), userData.getThirdEmail());
+    type(By.name("homepage"), userData.getHomepage());
       if (!wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[3]")).isSelected()) {
-          wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[3]")).click();
+        click(By.xpath("//div[@id='content']/form/select[1]//option[3]"));
       }
       if (!wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[2]")).isSelected()) {
-          wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[2]")).click();
+        click(By.xpath("//div[@id='content']/form/select[2]//option[2]"));
       }
-      wd.findElement(By.name("byear")).click();
-      wd.findElement(By.name("byear")).clear();
-      wd.findElement(By.name("byear")).sendKeys(userData.getYear());
+    type(By.name("byear"), userData.getYear());
       if (!wd.findElement(By.xpath("//div[@id='content']/form/select[3]//option[3]")).isSelected()) {
-          wd.findElement(By.xpath("//div[@id='content']/form/select[3]//option[3]")).click();
+        click(By.xpath("//div[@id='content']/form/select[3]//option[3]"));
       }
       if (!wd.findElement(By.xpath("//div[@id='content']/form/select[4]//option[2]")).isSelected()) {
-          wd.findElement(By.xpath("//div[@id='content']/form/select[4]//option[2]")).click();
+        click(By.xpath("//div[@id='content']/form/select[4]//option[2]"));
       }
-      wd.findElement(By.name("ayear")).click();
-      wd.findElement(By.name("ayear")).clear();
-      wd.findElement(By.name("ayear")).sendKeys(userData.getAyear());
-      wd.findElement(By.name("address2")).click();
-      wd.findElement(By.name("address2")).clear();
-      wd.findElement(By.name("address2")).sendKeys(userData.getAddress2());
-      wd.findElement(By.name("phone2")).click();
-      wd.findElement(By.name("phone2")).clear();
-      wd.findElement(By.name("phone2")).sendKeys(userData.getPhone2());
-      wd.findElement(By.name("notes")).click();
-      wd.findElement(By.name("notes")).clear();
-      wd.findElement(By.name("notes")).sendKeys(userData.getNotes());
+    type(By.name("ayear"), userData.getAyear());
+    type(By.name("address2"), userData.getAddress2());
+    type(By.name("phone2"), userData.getPhone2());
+    type(By.name("notes"), userData.getNotes());
   }
 
   public void deleteSelectedGroup() {
-      wd.findElement(By.name("delete")).click();
+    click(By.name("delete"));
   }
 
   public void selectGroup() {
-      wd.findElement(By.name("selected[]")).click();
+    click(By.name("selected[]"));
   }
 }
