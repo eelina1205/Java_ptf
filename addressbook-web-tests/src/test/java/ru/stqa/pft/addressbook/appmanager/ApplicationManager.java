@@ -27,7 +27,7 @@ public class ApplicationManager {
       wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
   } else if (browser == org.openqa.selenium.remote.BrowserType.CHROME){
       wd = new ChromeDriver();
-    } else if (browser == org.openqa.selenium.remote.BrowserType.IE) {
+    } else if (browser == org.openqa.selenium.remote.BrowserType.IEXPLORE) {
       wd = new InternetExplorerDriver();
     }
 
