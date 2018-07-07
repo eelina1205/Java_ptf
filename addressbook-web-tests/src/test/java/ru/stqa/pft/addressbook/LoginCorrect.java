@@ -1,22 +1,13 @@
 package ru.stqa.pft.addressbook;
 
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-import static org.testng.Assert.*;
-
 import java.util.concurrent.TimeUnit;
-import java.util.Date;
-import java.io.File;
 
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
-
-import static org.openqa.selenium.OutputType.*;
 
 public class LoginCorrect {
   FirefoxDriver wd;
@@ -38,30 +29,40 @@ public class LoginCorrect {
 
   @Test
   public void testLoginCorrect() {
+    userName("Yelena");
+    password("Korsakova");
+    rememberMe();
+    buttonLogin();
+    verifyUserDataUserLogin();
+  }
 
-    userName();
-    password();
+  private void verifyUserDataUserLogin() {
+    if (!wd.findElement(By.tagName("html")).getText().contains("uname=Yelena&psw=Korsakova")) {
+    }
+  }
+
+  private void buttonLogin() {
+    wd.findElement(By.xpath("//div[@id='id01']//button[.='Login']")).click();
+  }
+
+  private void rememberMe() {
     //remember me
     wd.findElement(By.cssSelector("div.container")).click();
     if (wd.findElement(By.name("remember")).isSelected()) {
       wd.findElement(By.name("remember")).click();
     }
-    wd.findElement(By.xpath("//div[@id='id01']//button[.='Login']")).click();
-    if (!wd.findElement(By.tagName("html")).getText().contains("uname=Yelena&psw=Korsakova")) {
-    }
-
   }
 
-  private void password() {
+  private void password(String userName) {
     wd.findElement(By.name("psw")).click();
     wd.findElement(By.name("psw")).clear();
-    wd.findElement(By.name("psw")).sendKeys("Korsakova");
+    wd.findElement(By.name("psw")).sendKeys(userName);
   }
 
-  private void userName() {
+  private void userName(String pswd) {
     wd.findElement(By.name("uname")).click();
     wd.findElement(By.name("uname")).clear();
-    wd.findElement(By.name("uname")).sendKeys("Yelena");
+    wd.findElement(By.name("uname")).sendKeys(pswd);
   }
 
 
