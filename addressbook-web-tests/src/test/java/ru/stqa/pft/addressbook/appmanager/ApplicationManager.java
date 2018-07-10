@@ -23,11 +23,15 @@ public class ApplicationManager {
 
 
   public void init() {
-    if (browser == org.openqa.selenium.remote.BrowserType.FIREFOX){
+    if (browser.equals(org.openqa.selenium.remote.BrowserType.FIREFOX)){
       wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
-  } else if (browser == org.openqa.selenium.remote.BrowserType.CHROME){
+  } else if (browser.equals(org.openqa.selenium.remote.BrowserType.CHROME)){
       wd = new ChromeDriver();
+<<<<<<< HEAD
     } else if (browser == org.openqa.selenium.remote.BrowserType.IE) {
+=======
+    } else if (browser.equals(org.openqa.selenium.remote.BrowserType.IEXPLORE)) {
+>>>>>>> parent of 96b1a2e... Revert "Задание №7: Научиться запускать тесты в разных браузерах"
       wd = new InternetExplorerDriver();
     }
 
