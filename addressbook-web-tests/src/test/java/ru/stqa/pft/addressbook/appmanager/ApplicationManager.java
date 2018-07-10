@@ -29,6 +29,7 @@ public class ApplicationManager {
       wd = new ChromeDriver();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     } else if (browser == org.openqa.selenium.remote.BrowserType.IE) {
 =======
     } else if (browser.equals(org.openqa.selenium.remote.BrowserType.IEXPLORE)) {
@@ -36,6 +37,9 @@ public class ApplicationManager {
 =======
     } else if (browser == org.openqa.selenium.remote.BrowserType.IEXPLORE) {
 >>>>>>> parent of 31ca82d... Задание №7: Научиться запускать тесты в разных браузерах
+=======
+    } else if (browser == org.openqa.selenium.remote.BrowserType.IE) {
+>>>>>>> parent of 1586ffe... Лекция 3.3. Запуск тестов в разных браузерах
       wd = new InternetExplorerDriver();
     }
 
